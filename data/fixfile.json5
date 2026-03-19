@@ -1,0 +1,30 @@
+{
+    // pokemon
+    "阿柏蛇": "a bo she",
+    "阿柏怪": "a bo guai",
+    "长尾怪手": "chang wei guai shou",
+    "长鼻叶": "chang bi ye",
+    "长翅鸥": "chang chi ou",
+    "长耳兔": "chang er tu",
+    "长尾火狐": "chang wei huo hu",
+    "长嚎": "chang hao",
+    "甲壳": "jia ke", // 甲壳茧、甲壳龙、陷阱甲壳、愤怒甲壳、太晶甲壳
+    "路卡利欧": "lu ka li ou",
+    "穿着熊": "chuan zhuo xiong",
+    // moves
+    "弹跳": "tan tiao",
+    "蛸固": "shao gu",
+    "克命爪": "ke ming zhua",
+    "千重涛": "qian chong tao",
+    "纯朴": "chun pu",
+    // ability
+    "多重鳞片": "duo chong lin pian",
+    "硬爪": "ying zhua",
+    // locations
+    "关都": "guan du",
+    "城都": "cheng du",
+    "伽勒尔": "jia le er",
+    // characters
+    "武藏": "wu zang",
+    "朝蜜": "zhao mi",
+}
