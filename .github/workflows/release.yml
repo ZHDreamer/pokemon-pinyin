@@ -37,7 +37,8 @@ jobs:
 
       - name: Package output
         run: |
-          zip -r pkdicts_rime.zip dist/
+          cd dist
+          zip -r ../pkdicts_rime.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
