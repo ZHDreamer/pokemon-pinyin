@@ -96,7 +96,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/fa/92/92f4519221b833801
 
 [[package]]
 name = "pkdicts"
-version = "0.1.0"
+version = "2026.3.19"
 source = { editable = "." }
 dependencies = [
     { name = "beautifulsoup4" },
