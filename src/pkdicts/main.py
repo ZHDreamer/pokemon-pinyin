@@ -21,6 +21,7 @@ available_configs = ", ".join(CONFIGS.keys())
 def run_config(
     config_names: Sequence[str] = (DEFAULT_CONFIG_NAME,),
     output_dir: str = DEFAULT_OUTPUT_DIR,
+    use_scrape_do: bool = False,
 ) -> None:
     """Run one or more configurations."""
     pinyin_generator = PinyinGenerator()
@@ -40,7 +41,7 @@ def run_config(
         dictionary = Dictionary(
             config,
             output_dir,
-            page_parser=PageParser(),
+            page_parser=PageParser(use_scrape_do=use_scrape_do),
             pinyin_generator=pinyin_generator,
         )
         dictionary.scrape()
@@ -52,10 +53,13 @@ def run_config(
 @click.argument("config_names", nargs=-1)
 @click.option("--output-dir", default=DEFAULT_OUTPUT_DIR, show_default=True)
 @click.option("--all", "build_all", is_flag=True, help="Build all available configs.")
-def cli(config_names: tuple[str, ...], output_dir: str, *, build_all: bool) -> None:
+@click.option("--use-scrape-do", is_flag=True, help="Use scrape.do for fetching pages.")
+def cli(
+    config_names: tuple[str, ...], output_dir: str, *, build_all: bool, use_scrape_do: bool
+) -> None:
     """Generate dictionaries for a selected config."""
     if build_all:
-        run_config(config_names=tuple(CONFIGS), output_dir=output_dir)
+        run_config(config_names=tuple(CONFIGS), output_dir=output_dir, use_scrape_do=use_scrape_do)
         return
 
     if not config_names:
@@ -65,7 +69,7 @@ def cli(config_names: tuple[str, ...], output_dir: str, *, build_all: bool) -> N
         )
         raise ValueError(msg)
 
-    run_config(config_names=config_names, output_dir=output_dir)
+    run_config(config_names=config_names, output_dir=output_dir, use_scrape_do=use_scrape_do)
 
 
 if __name__ == "__main__":

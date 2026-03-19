@@ -1,11 +1,12 @@
 import logging
+import urllib.parse
 from collections.abc import Callable, Generator, Iterable
 from dataclasses import dataclass
 
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from .constant import BASE_URL, REQUEST_TIMEOUT, USER_AGENT
+from .constant import BASE_URL, REQUEST_TIMEOUT, SCRAPE_DO_TOKEN
 from .processor import noop
 from .types import Forms, Processor
 
@@ -26,10 +27,10 @@ class PageParser:
     """Handles page fetching and parsing with built-in caching."""
 
     session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT})
 
-    def __init__(self) -> None:
+    def __init__(self, use_scrape_do: bool = False) -> None:
         self._cache: dict[str, BeautifulSoup] = {}
+        self.use_scrape_do = use_scrape_do
 
     def parse(self, selectors: Iterable[Selector]) -> Generator[Generator[Forms]]:
         """Parse multiple selectors, caching pages by URL."""
@@ -59,11 +60,17 @@ class PageParser:
             yield elements
 
     def _fetch_page_content(self, url: str, params: dict[str, str]) -> BeautifulSoup:
+        url = url + f"?{urllib.parse.urlencode(params)}"
+
         if url in self._cache:
             return self._cache[url]
 
+        if self.use_scrape_do:
+            encoded_url = urllib.parse.quote(url)
+            url = f"http://api.scrape.do?token={SCRAPE_DO_TOKEN}&url={encoded_url}"
+
         try:
-            respond = self.session.get(url, params=params, timeout=REQUEST_TIMEOUT)
+            respond = self.session.get(url, timeout=REQUEST_TIMEOUT)
             respond.raise_for_status()
             data = respond.json()
             soup = BeautifulSoup(data["parse"]["text"], "html.parser")

@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,6 +12,8 @@ permissions:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
+    env:
+      SCRAPE_DO_TOKEN: ${{ secrets.SCRAPE_DO_TOKEN }}
 
     steps:
       - name: Checkout
@@ -30,7 +33,7 @@ jobs:
         run: uv sync --frozen
 
       - name: Build output
-        run: uv run pkdicts --all
+        run: uv run pkdicts --all --use-scrape-do
 
       - name: Package output
         run: |
