@@ -11,7 +11,7 @@ pkdicts 是一个宝可梦 rime 词库，数据来源[神奇宝贝百科 52 Poke
 | pk_items      | [道具列表](https://wiki.52poke.com/wiki/道具列表)                              |                              |
 | pk_locations  | [地点列表](https://wiki.52poke.com/wiki/地点列表)                              |                              |
 | pk_moves      | [招式列表](https://wiki.52poke.com/wiki/招式列表)                              |                              |
-| pk_pokemon    | [宝可梦列表](https://wiki.52poke.com/wiki/宝可梦列表（按全国图鉴编号）/简单版) | [宝可梦名称](doc/pokemon.md) |
+| pk_pokemon    | [宝可梦列表](https://wiki.52poke.com/wiki/宝可梦列表（按全国图鉴编号）/简单版) | [宝可梦名称](doc/Pokemon.md) |
 
 ## OpenCC
 
