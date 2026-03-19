@@ -36,15 +36,7 @@ class PageParser:
         """Parse multiple selectors, caching pages by URL."""
         for selector in selectors:
             soup = self._fetch_page_content(
-                BASE_URL,
-                params={
-                    "action": "parse",
-                    "variant": selector.variant,
-                    "page": selector.page,
-                    "format": "json",
-                    "formatversion": "2",
-                    "utf8": "1",
-                },
+                BASE_URL + f"/{selector.variant}/{selector.page}",
             )
             if not soup:
                 continue
@@ -59,9 +51,7 @@ class PageParser:
             elements = selector.processor(elements)
             yield elements
 
-    def _fetch_page_content(self, url: str, params: dict[str, str]) -> BeautifulSoup:
-        url = url + f"?{urllib.parse.urlencode(params)}"
-
+    def _fetch_page_content(self, url: str) -> BeautifulSoup:
         if url in self._cache:
             return self._cache[url]
 
@@ -72,8 +62,7 @@ class PageParser:
         try:
             respond = self.session.get(url, timeout=REQUEST_TIMEOUT)
             respond.raise_for_status()
-            data = respond.json()
-            soup = BeautifulSoup(data["parse"]["text"], "html.parser")
+            soup = BeautifulSoup(respond.text, "html.parser")
         except requests.exceptions.Timeout:
             logger.exception("Request timed out after %s seconds.", REQUEST_TIMEOUT)
         except requests.exceptions.RequestException:
