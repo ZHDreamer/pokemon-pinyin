@@ -3,6 +3,8 @@ from collections.abc import Generator
 from dataclasses import dataclass, field
 from itertools import chain, tee
 
+from pkdicts.core.constant import PREFIX
+
 from . import exporter
 from .parse_page import PageParser, Selector
 from .pinyin import PinyinGenerator
@@ -72,9 +74,10 @@ class Dictionary:
         self._log_variants()
 
     def generate_dictionary(self) -> None:
+        name = f"{PREFIX}_{self.name}"
         dictionary_entries, pinyins = tee(self._get_dictionary_entries())
         pinyins = self.pinyin_generator.get_pinyin(pinyins)
-        exporter.to_rime(self.output_directory, self.name, dictionary_entries, pinyins)
+        exporter.to_rime(self.output_directory, name, dictionary_entries, pinyins)
 
     def generate_translation(self) -> None:
         if not self.translates_selectors:
