@@ -1,6 +1,6 @@
 # pkdicts
 
-pkdicts 是一个宝可梦 rime 词库，数据来源[神奇宝贝百科 52 Poke](https://wiki.52poke.com/wiki/%E4%B8%BB%E9%A1%B5)
+pkdicts 是一个宝可梦 rime 词库，数据来源[神奇宝贝百科 52 Poke](https://wiki.52poke.com/wiki/主页)
 
 ## 词库
 
