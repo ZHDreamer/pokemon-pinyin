@@ -3,14 +3,13 @@ name            = "pkdicts"
 version         = "2026.03.19"
 description     = "pokemon-pinyin 是一个宝可梦 rime 词库，数据来源神奇宝贝百科 52 Poke"
 readme          = "README.md"
-requires-python = ">=3.14"
 dependencies    = ["beautifulsoup4>=4.14.3", "click>=8.1.8", "json5>=0.13.0", "opencc>=1.2.0", "pypinyin>=0.55.0", "requests>=2.32.5"]
 
 [project.scripts]
 pkdicts = "pkdicts.main:cli"
 
 [build-system]
-requires      = ["uv_build>=0.9.2,<0.10.0"]
+requires      = ["uv_build>=0.10.9,<0.11.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
