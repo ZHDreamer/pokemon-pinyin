@@ -18,7 +18,7 @@ pkdicts = "pkdicts.main:cli"
 
 [dependency-groups]
 dev = [
-    "pre-commit>=4.5.1",
+    "prek>=0.3.6",
     "ruff>=0.15.7",
     "tombi>=0.9.7",
 ]
