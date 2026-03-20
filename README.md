@@ -63,4 +63,6 @@ uv run pkdicts --all
 
 本项目代码采用 [GPL-3.0](LICENSE) 许可。
 
-词库文件采用 [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh-hans) 许可，数据来源于[神奇宝贝百科 52 Poke](https://wiki.52poke.com/wiki/主页)，该网站内容采用 [CC BY-NC-SA 3.0](https://wiki.52poke.com/wiki/神奇宝贝百科:版权声明) 许可。
+词库文件采用 [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh-hans) 许可，
+数据来源于[神奇宝贝百科 52 Poke](https://wiki.52poke.com/wiki/主页)，
+该网站内容采用 [CC BY-NC-SA 3.0](https://wiki.52poke.com/wiki/神奇宝贝百科:版权声明) 许可。
