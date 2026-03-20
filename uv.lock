@@ -178,7 +178,7 @@ wheels  = [
 
 [[package]]
 name         = "pkdicts"
-version      = "2026.3.19"
+version      = "2026.3.20"
 source       = { editable = "." }
 dependencies = [
     { name = "beautifulsoup4" },
