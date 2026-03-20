@@ -5,3 +5,11 @@ repos:
       - id: ruff-format
       - id: ruff-check
         args: [ --fix ]
+
+  - repo: local
+    hooks:
+      - id: tombi
+        name: tombi fmt
+        entry: uv run tombi fmt
+        language: system
+        types: [toml]

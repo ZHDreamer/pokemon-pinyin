@@ -3,20 +3,29 @@ name            = "pkdicts"
 version         = "2026.03.19"
 description     = "pokemon-pinyin 是一个宝可梦 rime 词库，数据来源神奇宝贝百科 52 Poke"
 readme          = "README.md"
-dependencies    = ["beautifulsoup4>=4.14.3", "click>=8.1.8", "json5>=0.13.0", "opencc>=1.2.0", "pypinyin>=0.55.0", "requests>=2.32.5"]
+requires-python = ">=3.12"
+dependencies    = [
+    "beautifulsoup4>=4.14.3",
+    "click>=8.1.8",
+    "json5>=0.13.0",
+    "opencc>=1.2.0",
+    "pypinyin>=0.55.0",
+    "requests>=2.32.5"
+]
 
 [project.scripts]
 pkdicts = "pkdicts.main:cli"
 
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+    "ruff>=0.15.7",
+    "tombi>=0.9.7",
+]
+
 [build-system]
 requires      = ["uv_build>=0.10.9,<0.11.0"]
 build-backend = "uv_build"
-
-[dependency-groups]
-dev = ["pre-commit>=4.5.1", "ruff>=0.15.7"]
-
-[tool.uv]
-default-groups = []
 
 [tool.ruff]
 line-length  = 100
@@ -30,3 +39,10 @@ quote-style               = "double"
 indent-style              = "space"
 skip-magic-trailing-comma = false
 line-ending               = "lf"
+
+[tool.tombi.format.rules]
+indent-width                    = 4
+key-value-equals-sign-alignment = true
+
+[tool.uv]
+default-groups = []
