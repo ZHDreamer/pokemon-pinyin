@@ -44,6 +44,3 @@ line-ending               = "lf"
 indent-width                    = 4
 key-value-equals-sign-alignment = true
 line-width                      = 120
-
-[tool.uv]
-default-groups = []
