@@ -21,3 +21,8 @@ repos:
     rev: v0.21.0
     hooks:
       - id: yamlfmt
+
+  - repo: https://github.com/rvben/rumdl-pre-commit
+    rev: v0.1.56
+    hooks:
+      - id: rumdl-fmt
