@@ -1,6 +1,6 @@
 [project]
 name            = "pkdicts"
-version         = "2026.03.20"
+version         = "2026.04.14"
 description     = "pokemon-pinyin 是一个宝可梦 rime 词库，数据来源神奇宝贝百科 52 Poke"
 readme          = "README.md"
 requires-python = ">=3.12"
